@@ -1,0 +1,915 @@
+*{
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+  font-family: 'KIMM_Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  
+  body {
+    font-family: 'KIMM_Bold', sans-serif;
+  }
+  /* 예시: div에 실선 테두리 추가 */
+/* 모든 div에 실선 추가 */
+
+
+/* 헤드css */
+    /* 햄버거 아이콘 스타일 */
+    .hamburger {
+      width: 25px;
+      height: 3px;
+      background-color: #ffffff;
+      margin: 5px;
+      position: relative; /* top 값을 사용하기 위해 position 설정 */
+      top: -4px; /* 원하는 top 위치 값으로 조정 */
+      box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.7);
+    }
+    
+    /* 햄버거 메뉴바 스타일 */
+    .menu-bar1 {
+      position: fixed;
+      top: 0;
+      left: 180px;
+      padding: 10px;
+    }
+    .menu-bar2 {
+      position: fixed;
+      top: 0;
+      left: 120px;
+      padding: 20px;
+    }
+
+
+    /* 메뉴바 스타일*/
+    ul{
+      padding-left: 10px;
+      display: flex;
+      flex-wrap: wrap;
+  }
+  ul li{
+      list-style: none;
+  }
+  ul li a{
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      font-size: 14px;
+      display: block;
+      padding: 8px 15px;
+      position: relative;
+  }
+  ul li a:before{
+      content: '';
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: rgb(235, 133, 0);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: all 0.5s;
+  }
+  ul li a:after{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: rgb(235, 133, 0);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: all 0.5s;
+  }
+  /* 기존 스타일들 */
+  .menu-list {
+    display: flex;
+    justify-content: space-between; /* 아이템들을 좌우 정렬로 배치합니다 */
+    padding-left: 1300px; /* 좌측 간격 설정 */
+    padding-right: 100px; /* 우측 간격 설정 */
+
+}
+
+.move-right {
+    margin-left: auto; /* 오른쪽으로 이동 */
+}
+
+.move-right2 {
+    margin-left: 2px; /* 추가 아이템 간격 조정 */
+}
+
+
+  ul li a:hover{
+      color: rgb(235, 133, 0);
+  }
+  ul li a:hover:before, ul li a:hover:after{
+      transform: scalex(1);
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0);
+    min-width: 100px;
+    z-index: 1;
+    font-size: 5pt;
+    white-space: nowrap;
+    backdrop-filter: blur(80px);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0);
+    }
+
+  /*글씨쿼리*/
+  @media screen and (max-width: 800px) {
+    .menu-list {
+      padding-left: 320px; /* ul의 패딩 값을 변경 */
+      padding-right: 20px; /* 우측 간격 설정 */
+    }
+    .move-right a,.move-right2 a {
+      padding: 8px 0px; /* 각각의 li의 a 태그 패딩 값을 변경 */
+      font-size: 13px;
+      position: relative; /* top 값을 사용하기 위해 position 설정 */
+      top: -50px; /* 원하는 top 위치 값으로 조정 */
+    }
+  }
+    /*햄버거 쿼리*/
+  @media screen and (max-width: 800px) {
+    .menu-bar2 {
+        left: 20px; /* 원하는 간격으로 수정 */
+        padding: 10px; /* 다른 스타일에 맞게 패딩 조정 */
+        position: relative; /* top 값을 사용하기 위해 position 설정 */
+        top: -8px; /* 원하는 top 위치 값으로 조정 */
+    }
+    
+    .hamburger {
+        margin: 5px 0; /* 해당 간격을 조정합니다. */
+        margin-top: 5px;
+        
+    }
+}
+
+/* 로고쿼리*/
+@media screen and (max-width: 800px) {
+  /* 이미지 컨테이너 스타일 */
+  .image-container3 {
+      width: 100%; /* 가로 중앙 정렬을 위해 너비를 100%로 설정 */
+      text-align: center; /* 이미지를 중앙으로 정렬하기 위해 텍스트 정렬 속성 추가 */
+  }
+
+  .image-container3 img {
+      width: 35px; /* 이미지의 원하는 너비 설정 */
+      height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
+      /* 추가적인 스타일을 넣을 수 있습니다 */
+  }
+}
+
+
+
+
+
+
+  
+
+
+
+
+    
+    /* 이미지 컨테이너 스타일 */
+    .image-container3 {
+      display: flex;
+      justify-content: center; /* 가로 가운데 정렬 */
+      align-items: center; /* 세로 가운데 정렬 */
+      width: 6px;
+      height: 20%;
+    }
+    .image-container3 img {
+      width: 35px; /* 이미지의 원하는 너비 설정 */
+      height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
+      top: 0px;
+
+      
+    }
+    
+    /* 모피즘 효과 스타일 */
+    .morphism {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 60px;
+      background-color: rgba(239, 234, 234, 0.1);
+      border-radius: 0px;
+      box-shadow: 0px 0px 10px 5px rgb(187, 187, 187);
+      backdrop-filter: blur(8px);
+      z-index: 1; /* 다른 요소 위에 표시되도록 설정 */
+      color: #ffffff; /* 글자색을 검정으로 설정 */
+    }
+
+
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.video-background {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+  .video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000;
+  }
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.9)); /* 그라데이션 범위 조절 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .overlay h2 {
+    color: white;
+    font-size: 4em;
+    position: absolute;
+    top: 630px; 
+    right: 140px 
+  }
+  .overlay h1 {
+    color: white;
+    font-size: 6.5em;
+    position: absolute;
+    top: 690px; 
+    right: 140px; 
+  }
+
+/*메인글씨 쿼리*/
+@media screen and (max-width: 800px) {
+  .overlay h2,
+  .overlay h1 {
+      white-space: nowrap; /* 텍스트가 한 줄로 유지되도록 설정 */
+  }
+}
+  @media screen and (max-width: 800px) {
+    .overlay h2 {
+      font-size: 2.5em; /* 작은 크기로 설정 */
+      margin-top: -20px; /* 아래쪽 간격을 조정합니다 */
+      left: 165px; /* 왼쪽으로부터의 간격 조정 */
+  }
+
+  .overlay h1 {
+      font-size: 3.5em; /* 작은 크기로 설정 */
+      margin-top: -35px; /* 아래쪽 간격을 조정합니다 */
+      left: -70px; /* 왼쪽으로부터의 간격 조정 */
+  }
+}
+
+
+
+/*메인 영상크키 줄이기 쿼리*/
+@media screen and (max-width: 800px) {
+  .video-background {
+      width: 200%; /* 비디오의 너비를 조정 */
+      height: 85%; /* 비디오의 높이를 조정 */
+      /* 다른 스타일 */
+  }
+
+  .overlay {
+      width: 70%; /* div의 너비를 조정 */
+      height: auto; /* div의 높이를 조정 */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*메인*/
+  .main1{
+    height: 530px;
+    background-color: #F5F5F5;
+  }
+  @media screen and (max-width: 800px) {
+    .main1 {
+      height: 400px;
+    }
+  }
+
+  .main1 p {
+    position: relative; 
+    font-size: 30px;
+    top: 75px;
+  }
+  .main1 a {    
+    position: relative;
+    font-size: 20px;
+    top: 100px;
+    left: auto;
+    right: auto;
+    text-align: center; 
+    display: block; 
+    margin: 0 auto; 
+  }
+  
+  .image-container {
+    position: relative;
+    text-align: center; 
+
+  }
+  .image-container img {
+    display: inline-block; 
+    vertical-align: middle; 
+    margin-top: 140px; 
+    margin-bottom: 90px;
+    width: 45%;
+    height: auto;
+  }
+.image-caption {
+    position: absolute;
+    left: 10px; 
+    padding: 5px;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 
+    Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", 
+    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-size: 100px;
+}
+/*MODEL 축소 쿼리*/
+@media screen and (max-width: 800px) {
+  .image-container.main1 p {
+    font-size: 24px; /* 작은 화면에서 원하는 크기로 설정 */
+  }
+}
+
+/* MODEL 글씨쿼리*/
+@media screen and (max-width: 800px) {
+  .image-container.main1 a {
+    font-size: 14px; /* 원하는 작은 크기로 설정 */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.car {
+  display: flex;
+  justify-content: space-around; /* 요소들을 가로 방향으로 공간을 동일하게 분배하여 정렬합니다. */
+  align-items: flex-start; /* 요소들을 세로 방향 상단으로 정렬합니다. */
+  gap: 100rem;
+  flex-wrap: wrap; /* 화면이 작아질 때 요소들을 여러 줄로 배치합니다. */
+}
+
+/* 모바일 화면을 위한 미디어 쿼리 */
+@media screen and (max-width: 800px) {
+  /* .car 내부의 div들을 세로로 배치하고 중앙 정렬합니다 */
+  .car {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+
+
+
+  /*자동차*/
+
+
+
+.revuelto {
+    position: absolute;
+    top: 170px; 
+}
+.revuelto img {
+    width: 340px; 
+    position: relative; 
+    top: -50px; 
+} 
+.revuelto img {
+    transition: transform 0.3s ease-in-out; 
+}
+.revuelto a {
+  position: absolute;
+  top: 73%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(58, 48, 48);
+  font-size: 18px;
+  text-decoration: none;
+  z-index: 1;
+  transition: color 0.3s;
+}
+.revuelto img:hover {
+    transform: scale(1.1); 
+}
+.revuelto img:nth-child(1):hover {
+    content: url('https://i.postimg.cc/25yx109C/2.png'); 
+}
+
+
+@media screen and (max-width: 768px) {
+  .car img {
+      max-width: 60%; /* 이미지의 최대 너비를 부모 요소의 너비에 맞춰 설정합니다. */
+      height: auto; /* 높이를 자동으로 조정하여 비율을 유지합니다. */
+      margin-top: 50px;
+  }
+}
+
+
+
+
+  .typo {
+    position: absolute;
+    top: 170px;
+    left: 26%;
+    transform: translateX(-50%);
+    width: 340px;
+  }
+  .typo img {
+    width: 100%;
+  }
+
+  .typo a {
+    position: absolute;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(58, 48, 48);
+    font-size: 18px;
+    text-decoration: none;
+    z-index: 1;
+    transition: color 0.3s;
+  }
+  .typo:hover img {
+    transform: scale(1.1);
+  }
+  .typo:hover a {
+    color: rgb(235, 133, 0);
+  }
+
+
+
+  .huracan {
+    position: absolute;
+    top: 120px; /* 수정된 부분 */
+    width: 340px;
+    left: 50%;
+}
+
+.huracan img {
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.huracan img:hover {
+    transform: scale(1.1);
+}
+
+.huracan img:nth-child(1):hover {
+    content: url('https://i.postimg.cc/85PspYZb/2.png');
+}
+
+.huracan a {
+    position: absolute;
+    top: 84%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(58, 48, 48);
+    font-size: 18px;
+    text-decoration: none;
+    z-index: 1;
+    transition: color 0.3s;
+}
+.huracan:hover img {
+    transform: scale(1.1);
+}
+.huracan:hover a {
+    color: rgb(235, 133, 0);
+}
+
+
+
+/*urus*/
+.urus {
+  position: absolute;
+  top: 120px; /* 수정된 부분 */
+  width: 340px;
+  left: 74%;
+}
+.urus img {
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+.urus img:hover {
+    transform: scale(1.1);
+}
+.urus img:nth-child(1):hover {
+    content: url('https://i.postimg.cc/fyPvjmV6/urus2.png');
+}
+.urus a {
+    position: absolute;
+    top: 83%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(58, 48, 48);
+    font-size: 18px;
+    text-decoration: none;
+    z-index: 1;
+    transition: color 0.3s;
+}
+
+.urus:hover img {
+    transform: scale(1.1);
+}
+
+.urus:hover a {
+    color: rgb(235, 133, 0);
+}
+@media screen and (max-width: 800px) {
+  /* revuelto, huracan, urus를 세로로 배열 */
+  .revuelto,
+  .huracan,
+  .urus {
+    display: block; /* 블록 요소로 설정하여 세로로 배치 */
+    text-align: center; /* 가운데 정렬 */
+    margin: 20px auto; /* 위아래 여백 설정 */
+  }
+}
+
+  /* 각 div 안의 이미지와 링크를 세로로 배치 */
+  @media screen and (max-width: 800px) {
+  .revuelto img,
+  .huracan img,
+  .urus img,
+  .huracan a,
+  .urus a {
+    display: block; /* 블록 요소로 변경 */
+    margin: 20px auto; /* 위아래 여백 조정 */
+  }
+  @media screen and (max-width: 800px) {
+    .revuelto a {
+      display: block; /* 블록 요소로 변경 */
+      margin: -10px auto; /* 위아래 여백 조정 */
+    }
+  }
+}
+
+/*회사소개*/
+.typo{
+    position: absolute;
+}
+.head1, .head1-1-1,.head2, .head3, .head1-1, .head2-2, .head2-3{
+    position: absolute;
+    color: #F5F5F5;
+    top: 1665px;
+}
+.head1 {
+    font-size: 24px;
+    margin-left: 180px;
+    line-height: 1.2; 
+    margin-top:-570px;
+}
+.head1-1 {
+    font-size: 24px;
+    margin-left: 180px;
+    margin-top: 20px;
+}
+.head1-1-1 {
+  margin-left: 180px;
+  margin-top: 350px;
+
+
+
+  font-size: 3em;
+  color: #F5F5F5;
+
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 
+  Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", 
+  "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+
+  line-height: 1.5; 
+}
+.head2 {
+    font-size: 5em;
+    margin-left: 578px;
+    top: 180px;
+}
+.head2-2 {
+    font-size: 3em;
+    margin-left: 580px;
+    top: 2469px;
+    color: #F5F5F5;
+    line-height: 1.2; 
+ }
+.head2-3 {
+    font-size: 3em;
+    margin-left: 580px;
+    top: 2595px;
+    color: #F5F5F5;
+
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 
+    Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", 
+    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+
+    line-height: 1.5; 
+}
+
+.head3 {
+    font-size: 5em;
+    margin-left: 1031px;
+    top: 260px;
+}
+.imgs {
+    position: relative; 
+}
+
+.imgs img {
+    position: absolute; 
+    top: 480px; 
+    right: 0; 
+    width: 790px; 
+    height: auto; 
+}
+@media screen and (max-width: 768px) {
+  .head2{
+    font-size: 38pt;
+    margin-left: 50px;
+    margin-top: 25px;
+  }
+  .head2-2{
+    font-size: 37pt;
+    margin-left: 50px;
+    margin-top: -175px;
+  }
+  .head3{
+    font-size: 38pt;
+    margin-left: 305px;
+    margin-top: 0px;
+  }
+  .head1{
+    font-size: 14pt;
+    margin-left: 50px;
+    margin-top: -605px;
+  }
+  .head1-1{
+    font-size: 14pt;
+    margin-left: 50px;
+    margin-top: -405px;
+  }
+  .head2-3{
+    font-size: 14pt;
+    margin-left: 50px;
+    margin-top: -40px;
+  }
+  .head1-1-1{
+    font-size: 14pt;
+    margin-left: 50px;
+    margin-top: 245px;
+  }
+  .imgs img{
+    width: 92%;
+    margin-left: 50px;
+    margin-top: -105px;
+  }
+}
+
+
+
+/*REPAIR SEVICE*/
+/* 기본 이미지 스타일 */
+.tech{
+  position: relative;
+}
+.tech2 {
+  width: 100%;
+  background-image: url('https://i.postimg.cc/9FqvVdbj/Group-11.png');
+  background-size: cover;
+  background-position: center;
+  height: 2000px; /* 기본 높이 */
+}
+
+.engin {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+@media screen and (max-width: 768px) {
+  .engin{
+    height: 10px;
+    font-size: 1pt;
+    padding-top: -25px;
+  }
+}
+.black{
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  bottom: 0; /* 맨 아래에 배치 */
+  z-index: 1; 
+}
+
+.new-div {
+  margin-top: 130px; 
+  margin-bottom: 50px; 
+}
+@media screen and (max-width: 768px) {
+  .new-div{
+    width: 90%;
+    font-size: 1pt;
+    margin-top: -4px;
+  }
+}
+.new-div img {
+  width: 1.2%;
+  display: block;
+  margin-top: 80px; 
+  margin-bottom: 30px; 
+}
+
+.new-div p {
+    text-align: center; 
+    font-size: 24px; 
+    margin-top: 40px; 
+}
+.font{
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 
+    Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", 
+    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-size: 100px;
+}
+
+hr {
+    width: 78%;
+}
+
+.footer{
+  margin-top: 20px;
+  margin-left: 180px;
+  font-size: 5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+table {
+  border-collapse: collapse;
+}
+
+td {
+  /*border: 1px solid black;*/
+  padding-left: 10px;
+  padding-top: 30px;
+}
+
+.left-bottom-align {
+  text-align: left;
+  vertical-align: bottom;
+  width: 550px;
+}
+.lin{
+  font-size: 10pt;
+}
+.info{
+  font-size: 10pt;
+  text-align: left;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 
+  Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", 
+  "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-weight: 400;
+  font-size: 13pt;
+}
+
+.room{
+  background-color: #ffffff;
+  width: 100%;
+  height: 50px;
+}
+
+
+
+
+/* 푸터 미디어쿼리*/
+@media screen and (max-width: 800px) {
+  td {
+      display: block;
+      width: 100;
+      margin: 0;
+  }
+  tr{
+      display: block;
+      width: 100%;
+  }
+  .info {
+      width: 640px;
+      text-align: left;
+  }
+
+
+
+
+
+
+/* 화면이 768px 미만일 때 */
+@media screen and (max-width: 800px) {
+  .lin,
+  .logogo {
+      display: table-cell !important;
+      text-align: initial !important;
+      width: 300px;
+  }
+  .lin img{
+      width: 80%;
+  }
+
+  .ttt .info td {
+      display: table-cell !important;
+      text-align: initial !important;
+      width: 250px;
+  }
+}
+/* 글씨 */
+@media screen and (max-width: 800px) {
+  td[style="width: 640px;"] {
+      font-size: 60px; /* 폰트 크기 조정 */
+  }
+}
+@media screen and (max-width: 800px) {
+  .footer {
+      padding-left: 80px; /* 왼쪽 패딩 값을 원하는 값으로 조정 */
+  }
+}
+
+}

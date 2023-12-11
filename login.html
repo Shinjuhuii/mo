@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Centered Div with Video Background</title>
+
+  <link rel="stylesheet" type="text/css" 
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+</head>
+<style>
+    body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container2 {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+}
+
+
+.centered {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgba(230, 230, 230, 0);
+  backdrop-filter: blur(10px);
+}
+
+label {
+  color: rgb(255, 255, 255); /* 원하는 색상으로 변경하세요 */
+}
+
+/* ID와 Password 입력 필드의 텍스트 색상 변경 */
+input[type="text"],
+input[type="password"] {
+  color: red; /* 원하는 색상으로 변경하세요 */
+}
+
+</style>
+<body>
+    <div class="container2">
+        <a href="index.html"><img src="logo.png" alt="대체_텍스트"></a>
+    </div>
+      
+  <div class="video-container">
+    <div class="container">
+      <div class="centered">
+        <!-- 원하는 내용을 추가하세요 -->
+        <form>
+          <label for="username">ID:</label>
+          <input type="text" id="username" name="username"><br><br>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password"><br><br>
+          <input type="submit" value="Login">
+          <input type="reset" value="Reset">
+        </form>
+      </div>
+    </div>
+    <video autoplay muted loop id="bg-video">
+      <source src="head.mp4" type="video/mp4">
+      <!-- 다른 비디오 포맷도 지원하려면 여기에 추가 -->
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</body>
+</html>
